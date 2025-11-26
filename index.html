@@ -1,32 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Form</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Public Comment Form</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="container">
-    <h2>Contact Us</h2>
+<div class="container">
+  <h2>Public Comment Form</h2>
+  <p>Please use the form below to submit comments for a Board or Committee Meeting. Your comments will be read during the meeting.</p>
 
-    <form id="contactForm">
-      <label>Name</label>
-      <input type="text" id="name" required>
+  <form id="contactForm">
+    <!-- CSRF / Nonce token -->
+    <input type="hidden" id="nonce" value="">
 
-      <label>Email</label>
-      <input type="email" id="email" required>
+    <label>First Name</label>
+    <input type="text" id="firstName" required />
 
-      <label>Message</label>
-      <textarea id="message" required></textarea>
+    <label>Last Name</label>
+    <input type="text" id="lastName" required />
 
-      <button type="submit">Send</button>
+    <label>Email Address</label>
+    <input type="email" id="email" required />
 
-      <p id="status"></p>
-    </form>
-  </div>
+    <label>Address</label>
+    <input type="text" id="address" />
 
-  <script src="script.js"></script>
+    <label>City</label>
+    <input type="text" id="city" />
+
+    <label>State</label>
+    <input type="text" id="state" />
+
+    <label>Zip</label>
+    <input type="text" id="zip" />
+
+    <label>Meeting Selection</label>
+    <div class="radio-group" required>
+      <label><input type="radio" name="meeting" value="Board Meeting" required> Board Meeting</label>
+      <label><input type="radio" name="meeting" value="Finance & Audit Committee"> Finance & Audit Committee</label>
+      <label><input type="radio" name="meeting" value="Planning & Administration Committee"> Planning & Administration Committee</label>
+      <label><input type="radio" name="meeting" value="Engineering & Operations Committee"> Engineering & Operations Committee</label>
+    </div>
+
+    <label>Item # or General Comment?</label>
+    <input type="text" id="item" placeholder='Enter item number or "General"' required />
+
+    <label>Comment</label>
+    <textarea id="comment" maxlength="1000" required></textarea>
+
+    <button type="submit">Submit Comment</button>
+    <p id="status"></p>
+  </form>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

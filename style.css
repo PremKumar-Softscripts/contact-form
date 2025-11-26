@@ -1,46 +1,106 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 2rem;
+ 
 }
 
 .container {
-  background: white;
+ 
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  width: 350px;
+  
+  width: 100%; /* wider for readability */
+  
 }
 
 h2 {
-  text-align: center;
+  font-family: "system-ui", -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 40px;
+  line-height: 45px;
+  color: rgb(10, 10, 10);
+
+  margin-bottom: 2rem;
 }
+
+p {
+  font-family: "system-ui", -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 26px;
+  color: rgb(54, 54, 54);
+  
+  margin-bottom: 2rem;
+}
+
 
 form label {
   display: block;
   margin-top: 1rem;
+  font-family: "system-ui", -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 26px;
+  color: rgb(54, 54, 54);
 }
 
-form input, form textarea {
+
+form input,
+form textarea {
   width: 100%;
   padding: 0.5rem;
   margin-top: 0.3rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 0.9rem;
 }
 
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.3rem;
+  gap: 0.5rem;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #0070f3; /* modern browsers color */
+  cursor: pointer;
+}
+
+
 button {
-  margin-top: 1rem;
-  padding: 0.7rem;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
   width: 100%;
   background: #0070f3;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
 }
 
 button:hover {
@@ -51,4 +111,5 @@ button:hover {
   margin-top: 1rem;
   text-align: center;
   font-weight: bold;
+  color: #333;
 }
