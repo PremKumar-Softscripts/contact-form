@@ -1,0 +1,12 @@
+{
+  "name": "contact-form-vercel",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.4",
+    "dotenv": "^16.4.5"
+  }
+}
