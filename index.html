@@ -1,57 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Public Comment Form</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PSC Ferry Public Comment Form</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<!-- <img src="/contact-form-resend/logo.png" alt="logo" srcset=""> -->
 <div class="container">
-  <h2>Public Comment Form</h2>
-  <p>Please use the form below to submit comments for a Board or Committee Meeting. Your comments will be read during the meeting.</p>
+  <h2>PSC Ferry Project – Public Comment Questionnaire</h2>
+  <p class="description">
+    St. Thomas, St. John Franchise Ferry Operations<br>
+    Rate 1–10 for each question, where 1 = lowest, 10 = highest
+  </p>
 
-  <form id="contactForm">
-    <!-- CSRF / Nonce token -->
-    <input type="hidden" id="nonce" value="">
+  <form id="commentForm">
 
-    <label>First Name</label>
-    <input type="text" id="firstName" required />
-
-    <label>Last Name</label>
-    <input type="text" id="lastName" required />
-
-    <label>Email Address</label>
-    <input type="email" id="email" required />
-
-    <label>Address</label>
-    <input type="text" id="address" />
-
-    <label>City</label>
-    <input type="text" id="city" />
-
-    <label>State</label>
-    <input type="text" id="state" />
-
-    <label>Zip</label>
-    <input type="text" id="zip" />
-
-    <label>Meeting Selection</label>
-    <div class="radio-group" required>
-      <label><input type="radio" name="meeting" value="Board Meeting" required> Board Meeting</label>
-      <label><input type="radio" name="meeting" value="Finance & Audit Committee"> Finance & Audit Committee</label>
-      <label><input type="radio" name="meeting" value="Planning & Administration Committee"> Planning & Administration Committee</label>
-      <label><input type="radio" name="meeting" value="Engineering & Operations Committee"> Engineering & Operations Committee</label>
+    <!-- Step 1: Questions 1-13 -->
+    <div class="step active">
+      <div class="question" id="q1"><label>1. How reliable is the current ferry schedule?</label><div class="radio-group"></div></div>
+      <div class="question" id="q2"><label>2. How well are delays/cancellations communicated?</label><div class="radio-group"></div></div>
+      <div class="question" id="q3"><label>3. How would you rate overall vessel condition & cleanliness?</label><div class="radio-group"></div></div>
+      <div class="question" id="q4"><label>4. How satisfied are you with seating, comfort & amenities?</label><div class="radio-group"></div></div>
+      <div class="question" id="q5"><label>5. How satisfied are you with ticketing process?</label><div class="radio-group"></div></div>
+      <div class="question" id="q6"><label>6. How would you rate customer service of ferry staff?</label><div class="radio-group"></div></div>
+      <div class="question" id="q7"><label>7. How safe do you feel boarding/riding/disembarking?</label><div class="radio-group"></div></div>
+      <div class="question" id="q8"><label>8. How well do crew follow safety procedures?</label><div class="radio-group"></div></div>
+      <div class="question" id="q9"><label>9. How well does frequency meet community needs?</label><div class="radio-group"></div></div>
+      <div class="question" id="q10"><label>10. How adequate is vessel capacity at peak times?</label><div class="radio-group"></div></div>
+      <div class="question" id="q11"><label>11. How would you rate experience at Red Hook terminal?</label><div class="radio-group"></div></div>
+      <div class="question" id="q12"><label>12. How would you rate experience at Cruz Bay terminal?</label><div class="radio-group"></div></div>
+      <div class="question" id="q13"><label>13. How accessible are ferries/terminals for seniors, disabled, families?</label><div class="radio-group"></div></div>
+      
+      <div class="step-buttons">
+        <button type="button" onclick="nextStep()">Next</button>
+      </div>
     </div>
 
-    <label>Item # or General Comment?</label>
-    <input type="text" id="item" placeholder='Enter item number or "General"' required />
+    <!-- Step 2: Questions 14-19 -->
+    <div class="step">
+      <div class="question" id="q14"><label>14. How aware are you of ferry rate increase request?</label><div class="radio-group"></div></div>
+      <div class="question" id="q15"><label>15. How affordable are ferry rates for residents, commuters, students?</label><div class="radio-group"></div></div>
+      <div class="question" id="q16"><label>16. Rate impact of fare increase on household/business?</label><div class="radio-group"></div></div>
+      <div class="question" id="q17"><label>17. How strongly do you support/oppose proposed rate increase?</label><div class="radio-group"></div></div>
+      <div class="question" id="q18"><label>18. How well have ferry operators justified rate increase?</label><div class="radio-group"></div></div>
+      <div class="question" id="q19"><label>19. Should rate increase be contingent on specific improvements?</label><div class="radio-group"></div></div>
 
-    <label>Comment</label>
-    <textarea id="comment" maxlength="1000" required></textarea>
+      <div class="step-buttons">
+        <button type="button" onclick="prevStep()">Previous</button>
+        <button type="button" onclick="nextStep()">Next</button>
+      </div>
+    </div>
 
-    <button type="submit">Submit Comment</button>
+    <!-- Step 3: Questions 20-21 -->
+    <div class="step">
+      <div class="question" id="q20"><label>20. How important is modernization (digital ticketing, tracking)?</label><div class="radio-group"></div></div>
+      <div class="question" id="q21"><label>21. How effectively do ferry operators communicate outages/repairs/schedules?</label><div class="radio-group"></div></div>
+
+      <div class="step-buttons">
+        <button type="button" onclick="prevStep()">Previous</button>
+        <button type="button" onclick="nextStep()">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Final Comment -->
+    <div class="step">
+      <label>22. Please share any additional comments, concerns, or suggestions.</label>
+      <textarea id="finalComment" maxlength="1000" placeholder="Your comment here..."></textarea>
+
+      <div class="step-buttons">
+        <button type="button" onclick="prevStep()">Previous</button>
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+
     <p id="status"></p>
   </form>
 </div>
